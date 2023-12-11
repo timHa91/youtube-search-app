@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class YouTubeSearchComponent {
 
+  isLoading: boolean = false;
+
+  onLoading(loading: boolean) {
+    this.isLoading = loading;
+  }
 }

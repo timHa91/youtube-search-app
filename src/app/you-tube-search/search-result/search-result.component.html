@@ -1,16 +1,19 @@
 <div class="row mt-5">
-    <div *ngFor="let result of toDisplayResults" class="col-lg-3 mb-4">
-        <div class="card h-100" style="width: 18rem;">
-            <img [src]="result.thumbnailUrl" class="card-img-top" alt="...">
-            <div class="card-body d-flex flex-column">
-                <div>
-                    <h5 class="card-title">{{result.title}}</h5>
-                    <p class="card-text mb-4">{{result.description}}</p>
-                </div>
-                <div class="mt-auto">
-                    <a [href]="result.videoUrl" class="btn btn-primary">Go to Video</a>
+    <div *ngIf="isLoading">Loading...</div>
+    <ng-container *ngIf="!isLoading">
+        <div *ngFor="let result of toDisplayResults" class="col-lg-3 mb-4">
+            <div class="card h-100" style="width: 18rem;">
+                <img [src]="result.thumbnailUrl" class="card-img-top" alt="...">
+                <div class="card-body d-flex flex-column">
+                    <div>
+                        <h5 class="card-title">{{result.title}}</h5>
+                        <p class="card-text mb-4">{{result.description}}</p>
+                    </div>
+                    <div class="mt-auto">
+                        <a [href]="result.videoUrl" class="btn btn-primary">Go to Video</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </ng-container>
 </div>

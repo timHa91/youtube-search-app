@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SearchResult } from 'src/app/models/search-result.model';
 import { YouTubeSearchService } from 'src/app/services/you-tube-search.service';
 
@@ -10,7 +10,8 @@ import { YouTubeSearchService } from 'src/app/services/you-tube-search.service';
 export class SearchResultComponent implements OnInit {
 
   toDisplayResults: SearchResult[] = [];
-
+  @Input('isLoading') isLoading: boolean = false;
+  
   constructor(private searchService: YouTubeSearchService) {}
 
   ngOnInit(): void {
@@ -18,4 +19,5 @@ export class SearchResultComponent implements OnInit {
       this.toDisplayResults = results;
     });
   }
+
 }

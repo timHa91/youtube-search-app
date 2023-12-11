@@ -36,7 +36,7 @@ export class YouTubeSearchService {
 
     const queryUrl = `${this.apiUrl}?${params}`;
 
-    this.http.get<SearchResult[]>(queryUrl)
+    return this.http.get<SearchResult[]>(queryUrl)
     .pipe(
       map( (result: any) => {
         return result.items.map((item: any) => {
@@ -48,12 +48,6 @@ export class YouTubeSearchService {
           })
         })
       })
-    )
-    .subscribe( (searchResults) => {
-      console.log(searchResults);
-      if(searchResults) {
-      this.onSearch.next(searchResults);
-    }
-    });
+    );
   }
 }
