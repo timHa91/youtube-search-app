@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-8">
+        <form (ngSubmit)="onSearch()" #SearchForm=ngForm>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label for="searchBox">Search</label>
+                    <input name="searchValue" type="text" class="form-control" ngModel>
+                </div>
+                <div class="col-4 d-flex align-items-end">
+                    <button type="submit" class="btn btn-success">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
